@@ -1,0 +1,334 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* متغيرات CSS للألوان الجديدة */
+:root {
+  /* الألوان الأساسية - أزرق داكن */
+  --primary-main: #1e293b;
+  --primary-light: #334155;
+  --primary-dark: #0f172a;
+  
+  /* اللون الثانوي - ذهبي/برونزي */
+  --secondary-main: #d97706;
+  --secondary-light: #f59e0b;
+  --secondary-dark: #b45309;
+  
+  /* ألوان الحالة */
+  --success: #059669;
+  --warning: #d97706;
+  --error: #dc2626;
+  --info: #0891b2;
+  
+  /* ألوان محايدة - تدرجات الرمادي */
+  --neutral-50: #f8fafc;
+  --neutral-100: #f1f5f9;
+  --neutral-200: #e2e8f0;
+  --neutral-300: #cbd5e1;
+  --neutral-400: #94a3b8;
+  --neutral-500: #64748b;
+  --neutral-600: #475569;
+  --neutral-700: #334155;
+  --neutral-800: #1e293b;
+  --neutral-900: #0f172a;
+  
+  /* ألوان النصوص */
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-tertiary: #64748b;
+  --text-inverse: #ffffff;
+  --text-accent: #d97706;
+  
+  /* ألوان الخلفيات */
+  --background-primary: #ffffff;
+  --background-secondary: #f8fafc;
+  --background-tertiary: #f1f5f9;
+  --background-accent: #fef3c7;
+  
+  /* ألوان الحدود */
+  --border-light: #e2e8f0;
+  --border-medium: #cbd5e1;
+  --border-dark: #94a3b8;
+  --border-accent: #f59e0b;
+}
+
+/* تأثيرات الحركة */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+/* تطبيق التأثيرات على العناصر */
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+.pulse-animation {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.slide-in {
+  animation: slideIn 0.5s ease-out;
+}
+
+.shimmer-effect {
+  background: linear-gradient(90deg, transparent, rgba(217, 119, 6, 0.1), transparent);
+  background-size: 200px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* تحسينات عامة */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  direction: rtl;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+/* تحسين شريط التمرير */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--neutral-100);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neutral-300);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neutral-400);
+}
+
+/* تحسينات للروابط */
+a {
+  color: var(--primary-main);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--secondary-main);
+}
+
+/* تحسينات للأزرار */
+button {
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+/* تحسينات للبطاقات */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.15);
+}
+
+/* تحسينات للخريطة */
+.leaflet-popup-content-wrapper {
+  border-radius: 8px !important;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.15) !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* تحسينات للـ Material-UI */
+.MuiCard-root {
+  transition: all 0.3s ease;
+}
+
+.MuiButton-root {
+  text-transform: none !important;
+  font-weight: 600 !important;
+}
+
+.MuiTextField-root .MuiOutlinedInput-root {
+  border-radius: 8px;
+}
+
+/* تحسينات للـ Sidebar */
+.sidebar-link {
+  transition: all 0.3s ease;
+}
+
+.sidebar-link:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  transform: translateX(-4px);
+}
+
+/* تحسينات للـ Header */
+.header-gradient {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-main) 100%);
+}
+
+/* تحسينات للـ Dashboard */
+.dashboard-card {
+  background: linear-gradient(135deg, var(--primary-main) 0%, var(--primary-light) 100%);
+  color: var(--text-inverse);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(30, 41, 59, 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dashboard-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(30, 41, 59, 0.3);
+}
+
+.dashboard-card-accent {
+  background: linear-gradient(135deg, var(--secondary-main) 0%, var(--secondary-light) 100%);
+  color: var(--text-inverse);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(217, 119, 6, 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dashboard-card-accent:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(217, 119, 6, 0.3);
+}
+
+/* تحسينات للـ Login */
+.login-background {
+  background: linear-gradient(135deg, var(--primary-main) 0%, var(--primary-dark) 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
+  transition: all 0.3s ease-in-out;
+}
+
+.login-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 25px 50px rgba(15, 23, 42, 0.2);
+}
+
+/* تحسينات للـ Map */
+.map-container {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.08);
+}
+
+/* تحسينات للـ Loading */
+.loading-container {
+  background: linear-gradient(135deg, var(--primary-main) 0%, var(--primary-dark) 100%);
+  color: var(--text-inverse);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* تحسينات للـ Notifications */
+.notification-success {
+  background: var(--success) !important;
+  color: var(--text-inverse) !important;
+}
+
+.notification-error {
+  background: var(--error) !important;
+  color: var(--text-inverse) !important;
+}
+
+.notification-warning {
+  background: var(--warning) !important;
+  color: var(--text-inverse) !important;
+}
+
+.notification-info {
+  background: var(--info) !important;
+  color: var(--text-inverse) !important;
+}
+
+/* تحسينات للعناصر المميزة */
+.accent-border {
+  border: 2px solid var(--border-accent);
+}
+
+.accent-text {
+  color: var(--text-accent);
+}
+
+.accent-bg {
+  background-color: var(--background-accent);
+}
+
+.accent-shadow {
+  box-shadow: 0 4px 16px rgba(217, 119, 6, 0.2);
+} 
